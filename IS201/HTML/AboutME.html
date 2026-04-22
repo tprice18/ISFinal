@@ -1,0 +1,132 @@
+<!-- Taylor Price, IS 201, Section 007, April 9th, 2026
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Page</title>
+    <link rel="stylesheet" href="../CSS/styles2.css">
+</head>
+<body>
+    <div class="about-section">
+        <a href="../Index.html" id="top">Home</a> |
+        <a href="Resume.html">Resume</a> |
+        <a href="#">Fan Page</a> |
+        <a href="WebApp.html">Snake Game</a><br>
+
+        <h1>Fan Page</h1>
+        <br>
+        <p class="custom-header-text">
+            My name is Taylor! I am a student at Brigham Young University by day...
+            <span id="night-text" class="night-text"> and a pop girl lover by night!</span>
+        </p>
+        <div class="profile-flip-wrap">
+            <div class="image-hint">Click the image to flip it</div>
+            <button class="profile-flip-button" id="profile-flip-button" type="button" aria-label="Flip profile photo">
+                <img id="profile-image" src="../images/unnamed.png" alt="Taylor Price profile photo" width="300">
+            </button>
+        </div>
+        
+        
+
+        <br><br><br>
+        <p>I am also looking for a wife. Here are the characteristics I am looking for:</p><br>
+        <ol>
+            <li>Physical
+                <ul>
+                    <li>Short</li>
+                    <li>Brunette</li>
+                    <li>Great Smile</li>
+                    <li>Fit</li>
+                </ul>
+            </li>
+            <li>Personality
+                <ul>
+                    <li>Funny</li>
+                    <li>Cute laugh</li>
+                </ul>
+            </li>
+            <li>Spiritual
+                <ul>
+                    <li>Good Testimony</li>
+                </ul>
+            </li>
+            <li>Other
+                <ul>
+                    <li>Olivia Rodrigo</li>
+                </ul>
+            </li>
+        </ol>
+        <section class="fandom-stack">
+            <img src="https://static.wikia.nocookie.net/hsmtmts/images/6/6c/Olivia_deserves_appreciation_on_this_wiki_too.jpg/revision/latest?cb=20200831215851" alt="Olivia Rodrigo" width="200">
+            <p>Here she is.</p>
+            <div class="video-wrap">
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/78wrful9cVU"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p>Look at her sing!!</p>
+        </section>
+        
+
+        <section class="viz-wrapper">
+            <h2>Taylor Swift Lyrics Tree Map</h2>
+            <p>This Tableau dashboard is embedded from Tableau Public.</p>
+            <div class="tableau-embed">
+                <noscript>
+                    <a href='https://public.tableau.com/app/profile/blair.bailey/viz/TaylorSwiftLyricsTreeMap/Dashboard'>
+                        View the Tableau dashboard
+                    </a>
+                </noscript>
+                <tableau-viz
+                    id="tableauViz"
+                    src="https://public.tableau.com/views/TaylorSwiftLyricsTreeMap/Dashboard?:showVizHome=no"
+                    toolbar="bottom"
+                    hide-tabs
+                    device="desktop">
+                </tableau-viz>
+            </div>
+        </section>
+
+        <br><br><br>
+        <a href="#top">Back to Top </a>
+    </div>
+
+    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+    <script>
+        const profileButton = document.getElementById("profile-flip-button");
+        const profileImage = document.getElementById("profile-image");
+        const nightText = document.getElementById("night-text");
+        const imageSources = ["../images/unnamed.png", "../images/IMG_4445.jpeg"];
+        let currentImageIndex = 0;
+        let hasRevealedNightText = false;
+
+        profileButton.addEventListener("click", () => {
+            profileButton.classList.remove("is-flipping");
+            void profileButton.offsetWidth;
+            profileButton.classList.add("is-flipping");
+
+            window.setTimeout(() => {
+                currentImageIndex = currentImageIndex === 0 ? 1 : 0;
+                profileImage.src = imageSources[currentImageIndex];
+
+                if (!hasRevealedNightText) {
+                    nightText.classList.add("is-visible");
+                    hasRevealedNightText = true;
+                }
+            }, 300);
+        });
+
+        profileButton.addEventListener("animationend", () => {
+            profileButton.classList.remove("is-flipping");
+        });
+    </script>
+</body>
+</html>
